@@ -317,8 +317,9 @@ class SteamClient:
     def _get_trade_offer_url(trade_offer_id: str) -> str:
         return SteamUrl.COMMUNITY_URL + '/tradeoffer/' + trade_offer_id
 
+    #Returning balance without parsing price
     @login_required
-    def get_wallet_balance(self, convert_to_decimal: bool = True) -> Union[str, decimal.Decimal]:
+    def get_wallet_balance(self, convert_to_decimal: bool = False) -> Union[str, decimal.Decimal]:
         url = SteamUrl.STORE_URL + '/account/history/'
         response = self._session.get(url)
         response_soup = bs4.BeautifulSoup(response.text, "html.parser")
