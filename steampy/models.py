@@ -38,6 +38,7 @@ class Currency(enum.IntEnum):
     EURO = 3
     CHF = 4
     RUB = 5
+    AR = 34
 
 
 class TradeOfferState(enum.IntEnum):
